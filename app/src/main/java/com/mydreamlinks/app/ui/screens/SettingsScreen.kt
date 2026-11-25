@@ -57,7 +57,7 @@ fun SettingsScreen(api: Api, go: Go) {
                 Sticker(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
                         OutlinedTextField(bio, { bio = it.take(200) }, label = { Text("Bio") }, modifier = Modifier.fillMaxWidth(), minLines = 2)
-                        Toggle("AI readings", "Each night your new dreams get read for patterns and symbols.", ai) { ai = it }
+                        Toggle("AI readings", "Each new dream gets read for patterns and symbols a minute or so after you save it.", ai) { ai = it }
                         Eyebrow("New dreams are seen by")
                         Chips(VIS.values.toList(), tone = { if (VIS[vis] == it) ChipTone.Pink else ChipTone.Card }) { label ->
                             vis = VIS.entries.first { it.value == label }.key

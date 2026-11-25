@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,6 +35,7 @@ import com.mydreamlinks.app.ui.Go
 import com.mydreamlinks.app.ui.components.BarRow
 import com.mydreamlinks.app.ui.components.EmptyState
 import com.mydreamlinks.app.ui.components.Eyebrow
+import com.mydreamlinks.app.ui.components.Load
 import com.mydreamlinks.app.ui.components.LoadBox
 import com.mydreamlinks.app.ui.components.MoonIcon
 import com.mydreamlinks.app.ui.components.PosterButton
@@ -41,10 +43,20 @@ import com.mydreamlinks.app.ui.components.Sticker
 import com.mydreamlinks.app.ui.components.prettyDate
 import com.mydreamlinks.app.ui.components.rememberLoader
 import com.mydreamlinks.app.ui.theme.Ink
+import kotlinx.coroutines.delay
 
 @Composable
 fun ReadingsScreen(api: Api, go: Go) {
     val loader = rememberLoader { api.readings() }
+    val pending = (loader.state as? Load.Ready)?.value?.let { it.enabled && it.waiting > 0 && !it.capped } == true
+    // a reading is written a minute or so after a dream is saved, so check back while one is on its way
+    LaunchedEffect(pending) {
+        if (!pending) return@LaunchedEffect
+        repeat(15) {
+            delay(20_000)
+            loader.reload()
+        }
+    }
     LoadBox(loader) { r ->
         val latest = r.readings.firstOrNull()
         Page {
@@ -54,7 +66,7 @@ fun ReadingsScreen(api: Api, go: Go) {
                     Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                         Row {
                             Stat("Next reading", when { !r.enabled -> "Readings are off"; r.waiting > 0 -> "${r.waiting} ${if (r.waiting == 1) "dream" else "dreams"} waiting"; else -> "All caught up" }, Modifier.weight(1f))
-                            Stat("Arrives", if (r.enabled && r.waiting > 0) "Overnight, ~3 am" else "After your next dream", Modifier.weight(1f))
+                            Stat("Arrives", when { !r.enabled || r.waiting == 0 -> "After your next dream"; r.capped -> "Tomorrow · daily limit reached"; else -> "In a minute or two" }, Modifier.weight(1f))
                         }
                         Row {
                             Column(Modifier.weight(1f)) {
@@ -65,18 +77,24 @@ fun ReadingsScreen(api: Api, go: Go) {
                                     Text(r.tonight.name.lowercase(), color = Ink.card, style = MaterialTheme.typography.titleMedium)
                                 }
                             }
-                            Stat("So far", "${r.readings.size} ${if (r.readings.size == 1) "reading" else "readings"} ·${r.dreamCount} dreams", Modifier.weight(1f))
+                            Stat("So far", "${r.readings.size} ${if (r.readings.size == 1) "reading" else "readings"} · ${r.dreamCount} ${if (r.dreamCount == 1) "dream" else "dreams"}", Modifier.weight(1f))
                         }
                     }
                 }
             }
             if (!r.enabled) {
-                item { EmptyState("AI readings are switched off.", "Turn them on and each night your new dreams get read for patterns, symbols and what the sky was doing.") { PosterButton("Turn on readings", onClick = go::settings) } }
+                item { EmptyState("AI readings are switched off.", "Turn them on and each new dream gets read for patterns, symbols and what the sky was doing, a minute or so after you save it.") { PosterButton("Turn on readings", onClick = go::settings) } }
             }
             if (latest != null) {
                 item { LatestReading(latest) }
             } else if (r.enabled) {
-                item { EmptyState("Your first reading is on its way.", "Log a dream or two. Readings are written overnight from the dreams you added that day.") }
+                item {
+                    EmptyState("Your first reading is on its way.", when {
+                        r.waiting == 0 -> "Log a dream and your first reading shows up here a minute or so later."
+                        r.capped -> "You've had today's readings. Your new dreams get read tomorrow."
+                        else -> "Your dream is being read now. This page checks back on its own."
+                    })
+                }
             }
             if (r.readings.size > 1) {
                 item { Text("Earlier readings", style = MaterialTheme.typography.headlineMedium) }

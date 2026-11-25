@@ -88,6 +88,7 @@ fun FeedScreen(api: Api, go: Go) {
                     LogoutButton(api)
                 }
             }
+            item { LinksStrip(api, go) }
             if (!res.pulse.isNullOrEmpty()) {
                 item {
                     Sticker(color = Ink.night) {
@@ -120,7 +121,12 @@ fun JournalScreen(api: Api, go: Go) {
     val loader = rememberLoader { api.journal() }
     LoadBox(loader) { res ->
         Page {
-            item { PageHead("Journal", "Your dreams") { LogoutButton(api) } }
+            item {
+                PageHead("Journal", "Your dreams") {
+                    IconButton(onClick = go::links) { Icon(Icons.Filled.AccountCircle, "Links", tint = Ink.ink) }
+                    LogoutButton(api)
+                }
+            }
             if (res.dreams.isEmpty()) {
                 item {
                     EmptyState("Nothing logged yet.", "Write down last night's dream while you still remember it.") {

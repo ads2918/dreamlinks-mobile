@@ -153,6 +153,8 @@ data class Reading(
 data class Readings(
     val enabled: Boolean,
     val waiting: Int,
+    /** Hit today's reading cap, so waiting dreams get read tomorrow. Older servers don't send it. */
+    val capped: Boolean = false,
     @SerialName("dream_count") val dreamCount: Int,
     val tonight: Tonight,
     @SerialName("top_symbols") val topSymbols: List<SymbolCount>,
