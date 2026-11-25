@@ -1,0 +1,60 @@
+{
+    "enabled": true,
+    "waiting": 8,
+    "dream_count": 8,
+    "tonight": {
+        "name": "Waxing gibbous",
+        "phase": 0.43321560497128075
+    },
+    "top_symbols": [
+        {
+            "symbol": "water",
+            "n": 3
+        },
+        {
+            "symbol": "flying",
+            "n": 2
+        },
+        {
+            "symbol": "family",
+            "n": 2
+        },
+        {
+            "symbol": "teeth",
+            "n": 2
+        },
+        {
+            "symbol": "house",
+            "n": 2
+        },
+        {
+            "symbol": "door",
+            "n": 2
+        },
+        {
+            "symbol": "falling",
+            "n": 2
+        },
+        {
+            "symbol": "music",
+            "n": 1
+        }
+    ],
+    "readings": [
+        {
+            "date": "2026-11-22 10:23:37",
+            "overview": "Feelings rising.",
+            "patterns": [
+                "Water"
+            ],
+            "symbols": [
+                "Orca"
+            ],
+            "celestial": [
+                "Full moon"
+            ],
+            "moon": "Last quarter",
+            "moon_phase": 0.7659627515852776
+        }
+    ]
+}

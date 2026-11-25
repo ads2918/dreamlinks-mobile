@@ -1,0 +1,1154 @@
+{
+    "dream_count": 8,
+    "top_symbols": [
+        {
+            "symbol": "water",
+            "n": 3
+        },
+        {
+            "symbol": "flying",
+            "n": 2
+        },
+        {
+            "symbol": "family",
+            "n": 2
+        },
+        {
+            "symbol": "teeth",
+            "n": 2
+        },
+        {
+            "symbol": "house",
+            "n": 2
+        },
+        {
+            "symbol": "door",
+            "n": 2
+        },
+        {
+            "symbol": "falling",
+            "n": 2
+        },
+        {
+            "symbol": "music",
+            "n": 1
+        },
+        {
+            "symbol": "city",
+            "n": 1
+        },
+        {
+            "symbol": "sister",
+            "n": 1
+        }
+    ],
+    "moon": [
+        {
+            "phase": 0,
+            "name": "New moon",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "house",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "school",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "lost",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "phone",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "work",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "time",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 239,
+                    "title": "Late for the exam",
+                    "date": "2026-11-10"
+                }
+            ]
+        },
+        {
+            "phase": 1,
+            "name": "Waxing crescent",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "flying",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "falling",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "lucid",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 238,
+                    "title": "Falling through clouds",
+                    "date": "2026-11-13"
+                }
+            ]
+        },
+        {
+            "phase": 2,
+            "name": "First quarter",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "water",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "house",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "door",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "childhood",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "grandma",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 237,
+                    "title": "Old house again",
+                    "date": "2026-11-16"
+                }
+            ]
+        },
+        {
+            "phase": 3,
+            "name": "Waxing gibbous",
+            "count": 2,
+            "share": 25,
+            "symbols": [
+                {
+                    "symbol": "flying",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "family",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "music",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "city",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "sister",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "water",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "teeth",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "sea creature",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 235,
+                    "title": "The neon city",
+                    "date": "2026-11-21"
+                },
+                {
+                    "id": 236,
+                    "title": "Orca at the beach",
+                    "date": "2026-11-19"
+                }
+            ]
+        },
+        {
+            "phase": 4,
+            "name": "Full moon",
+            "count": 0,
+            "share": 0,
+            "symbols": [],
+            "dreams": []
+        },
+        {
+            "phase": 5,
+            "name": "Waning gibbous",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "door",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "light",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "forest",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "animal",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 242,
+                    "title": "The forest door",
+                    "date": "2026-10-29"
+                }
+            ]
+        },
+        {
+            "phase": 6,
+            "name": "Last quarter",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "falling",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "teeth",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "mirror",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 241,
+                    "title": "Teeth",
+                    "date": "2026-11-03"
+                }
+            ]
+        },
+        {
+            "phase": 7,
+            "name": "Waning crescent",
+            "count": 1,
+            "share": 13,
+            "symbols": [
+                {
+                    "symbol": "water",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "family",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "space",
+                    "n": 1,
+                    "stands_out": false
+                },
+                {
+                    "symbol": "mom",
+                    "n": 1,
+                    "stands_out": false
+                }
+            ],
+            "dreams": [
+                {
+                    "id": 240,
+                    "title": "Swimming with mom",
+                    "date": "2026-11-07"
+                }
+            ]
+        }
+    ],
+    "graph": {
+        "nodes": [
+            {
+                "id": "water",
+                "mine": 3,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "flying",
+                "mine": 2,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "family",
+                "mine": 2,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "house",
+                "mine": 2,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "door",
+                "mine": 2,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "city",
+                "mine": 1,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "teeth",
+                "mine": 2,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "sea creature",
+                "mine": 1,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "falling",
+                "mine": 2,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "school",
+                "mine": 1,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "lost",
+                "mine": 1,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "music",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "sister",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": false
+            },
+            {
+                "id": "ocean",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": false
+            },
+            {
+                "id": "childhood",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "grandma",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": false
+            },
+            {
+                "id": "lucid",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "phone",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "work",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "time",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "space",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "mom",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": false
+            },
+            {
+                "id": "mirror",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "light",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "forest",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "animal",
+                "mine": 1,
+                "theirs": 0,
+                "spotted": true
+            },
+            {
+                "id": "car",
+                "mine": 0,
+                "theirs": 1,
+                "spotted": true
+            },
+            {
+                "id": "brother",
+                "mine": 0,
+                "theirs": 1,
+                "spotted": false
+            },
+            {
+                "id": "crowd",
+                "mine": 0,
+                "theirs": 1,
+                "spotted": true
+            }
+        ],
+        "links": [
+            {
+                "source": "city",
+                "target": "family",
+                "weight": 1
+            },
+            {
+                "source": "city",
+                "target": "flying",
+                "weight": 1
+            },
+            {
+                "source": "city",
+                "target": "music",
+                "weight": 1
+            },
+            {
+                "source": "city",
+                "target": "sister",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "flying",
+                "weight": 2
+            },
+            {
+                "source": "family",
+                "target": "music",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "sister",
+                "weight": 1
+            },
+            {
+                "source": "flying",
+                "target": "music",
+                "weight": 1
+            },
+            {
+                "source": "flying",
+                "target": "sister",
+                "weight": 1
+            },
+            {
+                "source": "music",
+                "target": "sister",
+                "weight": 1
+            },
+            {
+                "source": "ocean",
+                "target": "sea creature",
+                "weight": 1
+            },
+            {
+                "source": "ocean",
+                "target": "teeth",
+                "weight": 1
+            },
+            {
+                "source": "ocean",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "sea creature",
+                "target": "teeth",
+                "weight": 1
+            },
+            {
+                "source": "sea creature",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "teeth",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "childhood",
+                "target": "door",
+                "weight": 1
+            },
+            {
+                "source": "childhood",
+                "target": "grandma",
+                "weight": 1
+            },
+            {
+                "source": "childhood",
+                "target": "house",
+                "weight": 1
+            },
+            {
+                "source": "childhood",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "door",
+                "target": "grandma",
+                "weight": 1
+            },
+            {
+                "source": "door",
+                "target": "house",
+                "weight": 2
+            },
+            {
+                "source": "door",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "grandma",
+                "target": "house",
+                "weight": 1
+            },
+            {
+                "source": "grandma",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "house",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "falling",
+                "target": "flying",
+                "weight": 1
+            },
+            {
+                "source": "falling",
+                "target": "lucid",
+                "weight": 1
+            },
+            {
+                "source": "flying",
+                "target": "lucid",
+                "weight": 1
+            },
+            {
+                "source": "house",
+                "target": "lost",
+                "weight": 2
+            },
+            {
+                "source": "house",
+                "target": "phone",
+                "weight": 1
+            },
+            {
+                "source": "house",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "house",
+                "target": "time",
+                "weight": 1
+            },
+            {
+                "source": "house",
+                "target": "work",
+                "weight": 1
+            },
+            {
+                "source": "lost",
+                "target": "phone",
+                "weight": 1
+            },
+            {
+                "source": "lost",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "lost",
+                "target": "time",
+                "weight": 1
+            },
+            {
+                "source": "lost",
+                "target": "work",
+                "weight": 1
+            },
+            {
+                "source": "phone",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "phone",
+                "target": "time",
+                "weight": 1
+            },
+            {
+                "source": "phone",
+                "target": "work",
+                "weight": 1
+            },
+            {
+                "source": "school",
+                "target": "time",
+                "weight": 1
+            },
+            {
+                "source": "school",
+                "target": "work",
+                "weight": 1
+            },
+            {
+                "source": "time",
+                "target": "work",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "mom",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "space",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "mom",
+                "target": "space",
+                "weight": 1
+            },
+            {
+                "source": "mom",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "space",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "falling",
+                "target": "mirror",
+                "weight": 1
+            },
+            {
+                "source": "falling",
+                "target": "teeth",
+                "weight": 1
+            },
+            {
+                "source": "mirror",
+                "target": "teeth",
+                "weight": 1
+            },
+            {
+                "source": "animal",
+                "target": "door",
+                "weight": 1
+            },
+            {
+                "source": "animal",
+                "target": "forest",
+                "weight": 1
+            },
+            {
+                "source": "animal",
+                "target": "light",
+                "weight": 1
+            },
+            {
+                "source": "door",
+                "target": "forest",
+                "weight": 1
+            },
+            {
+                "source": "door",
+                "target": "light",
+                "weight": 1
+            },
+            {
+                "source": "forest",
+                "target": "light",
+                "weight": 1
+            },
+            {
+                "source": "car",
+                "target": "city",
+                "weight": 1
+            },
+            {
+                "source": "car",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "city",
+                "target": "water",
+                "weight": 1
+            },
+            {
+                "source": "brother",
+                "target": "family",
+                "weight": 1
+            },
+            {
+                "source": "brother",
+                "target": "flying",
+                "weight": 1
+            },
+            {
+                "source": "brother",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "family",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "flying",
+                "target": "school",
+                "weight": 1
+            },
+            {
+                "source": "crowd",
+                "target": "sea creature",
+                "weight": 1
+            },
+            {
+                "source": "door",
+                "target": "lost",
+                "weight": 1
+            }
+        ],
+        "dreams": [
+            {
+                "id": 235,
+                "side": "mine",
+                "title": "The neon city",
+                "date": "Nov 21, 2026",
+                "owner": 104,
+                "symbols": [
+                    "city",
+                    "family",
+                    "flying",
+                    "music",
+                    "sister"
+                ]
+            },
+            {
+                "id": 236,
+                "side": "mine",
+                "title": "Orca at the beach",
+                "date": "Nov 19, 2026",
+                "owner": 104,
+                "symbols": [
+                    "ocean",
+                    "sea creature",
+                    "teeth",
+                    "water"
+                ]
+            },
+            {
+                "id": 237,
+                "side": "mine",
+                "title": "Old house again",
+                "date": "Nov 16, 2026",
+                "owner": 104,
+                "symbols": [
+                    "childhood",
+                    "door",
+                    "grandma",
+                    "house",
+                    "water"
+                ]
+            },
+            {
+                "id": 238,
+                "side": "mine",
+                "title": "Falling through clouds",
+                "date": "Nov 13, 2026",
+                "owner": 104,
+                "symbols": [
+                    "falling",
+                    "flying",
+                    "lucid"
+                ]
+            },
+            {
+                "id": 239,
+                "side": "mine",
+                "title": "Late for the exam",
+                "date": "Nov 10, 2026",
+                "owner": 104,
+                "symbols": [
+                    "house",
+                    "lost",
+                    "phone",
+                    "school",
+                    "time",
+                    "work"
+                ]
+            },
+            {
+                "id": 240,
+                "side": "mine",
+                "title": "Swimming with mom",
+                "date": "Nov 7, 2026",
+                "owner": 104,
+                "symbols": [
+                    "family",
+                    "mom",
+                    "space",
+                    "water"
+                ]
+            },
+            {
+                "id": 241,
+                "side": "mine",
+                "title": "Teeth",
+                "date": "Nov 3, 2026",
+                "owner": 104,
+                "symbols": [
+                    "falling",
+                    "mirror",
+                    "teeth"
+                ]
+            },
+            {
+                "id": 242,
+                "side": "mine",
+                "title": "The forest door",
+                "date": "Oct 29, 2026",
+                "owner": 104,
+                "symbols": [
+                    "animal",
+                    "door",
+                    "forest",
+                    "light"
+                ]
+            },
+            {
+                "id": 243,
+                "side": "theirs",
+                "title": "Flooded street",
+                "date": "Nov 20, 2026",
+                "owner": 105,
+                "symbols": [
+                    "car",
+                    "city",
+                    "water"
+                ]
+            },
+            {
+                "id": 244,
+                "side": "theirs",
+                "title": "Flying lessons",
+                "date": "Nov 17, 2026",
+                "owner": 105,
+                "symbols": [
+                    "brother",
+                    "family",
+                    "flying",
+                    "school"
+                ]
+            },
+            {
+                "id": 245,
+                "side": "theirs",
+                "title": "The orca dream",
+                "date": "Nov 14, 2026",
+                "owner": 105,
+                "symbols": [
+                    "crowd",
+                    "sea creature"
+                ]
+            },
+            {
+                "id": 246,
+                "side": "theirs",
+                "title": "Lost keys",
+                "date": "Nov 9, 2026",
+                "owner": 105,
+                "symbols": [
+                    "door",
+                    "house",
+                    "lost"
+                ]
+            }
+        ]
+    },
+    "kin": [
+        {
+            "id": 105,
+            "username": "moth_and_lamp",
+            "avatar": null,
+            "dreams": 4,
+            "similarity": 0.243,
+            "shared": [
+                "water",
+                "flying",
+                "family",
+                "house",
+                "door",
+                "city",
+                "sea creature",
+                "school"
+            ],
+            "linked": true
+        },
+        {
+            "id": 43,
+            "username": "astephens",
+            "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg",
+            "dreams": 5,
+            "similarity": 0.18,
+            "shared": [
+                "flying",
+                "family",
+                "house",
+                "childhood",
+                "lucid",
+                "school",
+                "space"
+            ],
+            "linked": false
+        },
+        {
+            "id": 70,
+            "username": "testtesttest2",
+            "avatar": null,
+            "dreams": 6,
+            "similarity": 0.07,
+            "shared": [
+                "lost",
+                "work",
+                "animal"
+            ],
+            "linked": false
+        }
+    ],
+    "dreamers": [
+        {
+            "id": 105,
+            "username": "moth_and_lamp",
+            "avatar": null,
+            "dreams": 4,
+            "similarity": 0.243,
+            "shared": [
+                "water",
+                "flying",
+                "family",
+                "house",
+                "door",
+                "city",
+                "sea creature",
+                "school"
+            ],
+            "linked": true
+        },
+        {
+            "id": 43,
+            "username": "astephens",
+            "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg",
+            "dreams": 5,
+            "similarity": 0.18,
+            "shared": [
+                "flying",
+                "family",
+                "house",
+                "childhood",
+                "lucid",
+                "school",
+                "space"
+            ],
+            "linked": false
+        },
+        {
+            "id": 70,
+            "username": "testtesttest2",
+            "avatar": null,
+            "dreams": 6,
+            "similarity": 0.07,
+            "shared": [
+                "lost",
+                "work",
+                "animal"
+            ],
+            "linked": false
+        },
+        {
+            "id": 60,
+            "username": "astephens3",
+            "avatar": null,
+            "dreams": 1,
+            "similarity": 0,
+            "shared": [],
+            "linked": false
+        }
+    ],
+    "compare": {
+        "id": 105,
+        "username": "moth_and_lamp",
+        "avatar": null,
+        "dreams": 4,
+        "similarity": 0.243,
+        "shared": [
+            "water",
+            "flying",
+            "family",
+            "house",
+            "door",
+            "city",
+            "sea creature",
+            "school"
+        ],
+        "linked": true,
+        "only_mine": [
+            "teeth",
+            "falling",
+            "music",
+            "sister",
+            "ocean",
+            "childhood",
+            "grandma",
+            "lucid"
+        ],
+        "only_theirs": [
+            "car",
+            "brother",
+            "crowd"
+        ]
+    },
+    "compare_note": null
+}

@@ -1,0 +1,105 @@
+{
+    "user": {
+        "id": 105,
+        "username": "moth_and_lamp",
+        "avatar": null,
+        "bio": "",
+        "self": false,
+        "link": {
+            "state": "linked",
+            "link_id": 110
+        }
+    },
+    "dreams": [
+        {
+            "id": 243,
+            "title": "Flooded street",
+            "text": "The street outside was flooded and I was swimming between cars. Strangely calm.",
+            "date": "2026-11-20",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "water",
+                "car",
+                "city"
+            ],
+            "moon": "Waxing gibbous",
+            "resonance": 1,
+            "resonated": true
+        },
+        {
+            "id": 244,
+            "title": "Flying lessons",
+            "text": "My brother was teaching me to fly off the roof of our old school.",
+            "date": "2026-11-17",
+            "visibility": "friends",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "brother"
+            ],
+            "symbols": [
+                "flying",
+                "family",
+                "school",
+                "brother"
+            ],
+            "moon": "First quarter",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 245,
+            "title": "The orca dream",
+            "text": "A whale or orca circling under a glass floor while a party went on above it.",
+            "date": "2026-11-14",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "crowd",
+                "sea creature"
+            ],
+            "moon": "Waxing crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 246,
+            "title": "Lost keys",
+            "text": "Searching the whole house for keys, every door led to another hallway.",
+            "date": "2026-11-09",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "house",
+                "door",
+                "lost"
+            ],
+            "moon": "New moon",
+            "resonance": 0,
+            "resonated": false
+        }
+    ]
+}

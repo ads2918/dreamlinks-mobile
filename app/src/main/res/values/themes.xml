@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose draws everything; this only sets the window colors shown before the first frame. -->
+    <style name="Theme.DreamLinks" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <color name="paper">#CFD6FF</color>
+    <color name="ink">#26134A</color>
+    <color name="pink">#FF4F9A</color>
+    <color name="yellow">#FFD93D</color>
+</resources>

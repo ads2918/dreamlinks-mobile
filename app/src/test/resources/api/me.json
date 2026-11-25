@@ -1,0 +1,13 @@
+{
+    "id": 104,
+    "username": "nightswimmer",
+    "email": "dltest_a@example.com",
+    "bio": "Lucid on full moons. Mostly water dreams.",
+    "avatar": null,
+    "role": "user",
+    "ai_analysis_enabled": true,
+    "default_dream_visibility": "private",
+    "reminder_enabled": false,
+    "reminder_hour": 8,
+    "timezone": "America/Indianapolis"
+}

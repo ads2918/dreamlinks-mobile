@@ -1,0 +1,198 @@
+{
+    "dreams": [
+        {
+            "id": 235,
+            "title": "The neon city",
+            "text": "I was flying over a neon city and every window was a different song. My sister was on a roof waving me down.",
+            "date": "2026-11-21",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "sister"
+            ],
+            "symbols": [
+                "flying",
+                "family",
+                "music",
+                "city",
+                "sister"
+            ],
+            "moon": "Waxing gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 236,
+            "title": "Orca at the beach",
+            "text": "On the beach by the ocean a huge orca came onto the shore and tried to get me with its teeth.",
+            "date": "2026-11-19",
+            "visibility": "friends",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "ocean"
+            ],
+            "symbols": [
+                "water",
+                "teeth",
+                "sea creature",
+                "ocean"
+            ],
+            "moon": "Waxing gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 237,
+            "title": "Old house again",
+            "text": "Back in my childhood house. The closet door opened onto the ocean and I could not move.",
+            "date": "2026-11-16",
+            "visibility": "private",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "grandma"
+            ],
+            "symbols": [
+                "water",
+                "house",
+                "door",
+                "childhood",
+                "grandma"
+            ],
+            "moon": "First quarter",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 238,
+            "title": "Falling through clouds",
+            "text": "I fell through clouds and realized I was dreaming, then started flying instead.",
+            "date": "2026-11-13",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "flying",
+                "falling",
+                "lucid"
+            ],
+            "moon": "Waxing crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 239,
+            "title": "Late for the exam",
+            "text": "Running late for an exam at my old school, lost in the hallway, phone would not work.",
+            "date": "2026-11-10",
+            "visibility": "private",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "house",
+                "school",
+                "lost",
+                "phone",
+                "work",
+                "time"
+            ],
+            "moon": "New moon",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 240,
+            "title": "Swimming with mom",
+            "text": "Swimming in a lake with my mom at night, the moon was huge.",
+            "date": "2026-11-07",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "mom"
+            ],
+            "symbols": [
+                "water",
+                "family",
+                "space",
+                "mom"
+            ],
+            "moon": "Waning crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 241,
+            "title": "Teeth",
+            "text": "My teeth were falling out in the bathroom mirror.",
+            "date": "2026-11-03",
+            "visibility": "private",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "falling",
+                "teeth",
+                "mirror"
+            ],
+            "moon": "Last quarter",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 242,
+            "title": "The forest door",
+            "text": "A door in the middle of the forest, light pouring out, a wolf guarding it.",
+            "date": "2026-10-29",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "door",
+                "light",
+                "forest",
+                "animal"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        }
+    ]
+}

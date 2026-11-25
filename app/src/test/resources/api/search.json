@@ -1,0 +1,13 @@
+{
+    "users": [
+        {
+            "id": 105,
+            "username": "moth_and_lamp",
+            "avatar": null,
+            "link": {
+                "state": "linked",
+                "link_id": 110
+            }
+        }
+    ]
+}

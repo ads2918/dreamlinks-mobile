@@ -1,0 +1,514 @@
+{
+    "dreams": [
+        {
+            "id": 235,
+            "title": "The neon city",
+            "text": "I was flying over a neon city and every window was a different song. My sister was on a roof waving me down.",
+            "date": "2026-11-21",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "sister"
+            ],
+            "symbols": [
+                "flying",
+                "family",
+                "music",
+                "city",
+                "sister"
+            ],
+            "moon": "Waxing gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 243,
+            "title": "Flooded street",
+            "text": "The street outside was flooded and I was swimming between cars. Strangely calm.",
+            "date": "2026-11-20",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "water",
+                "car",
+                "city"
+            ],
+            "moon": "Waxing gibbous",
+            "resonance": 1,
+            "resonated": true
+        },
+        {
+            "id": 244,
+            "title": "Flying lessons",
+            "text": "My brother was teaching me to fly off the roof of our old school.",
+            "date": "2026-11-17",
+            "visibility": "friends",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "brother"
+            ],
+            "symbols": [
+                "flying",
+                "family",
+                "school",
+                "brother"
+            ],
+            "moon": "First quarter",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 245,
+            "title": "The orca dream",
+            "text": "A whale or orca circling under a glass floor while a party went on above it.",
+            "date": "2026-11-14",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "crowd",
+                "sea creature"
+            ],
+            "moon": "Waxing crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 238,
+            "title": "Falling through clouds",
+            "text": "I fell through clouds and realized I was dreaming, then started flying instead.",
+            "date": "2026-11-13",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "flying",
+                "falling",
+                "lucid"
+            ],
+            "moon": "Waxing crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 246,
+            "title": "Lost keys",
+            "text": "Searching the whole house for keys, every door led to another hallway.",
+            "date": "2026-11-09",
+            "visibility": "public",
+            "owner": {
+                "id": 105,
+                "username": "moth_and_lamp",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [],
+            "symbols": [
+                "house",
+                "door",
+                "lost"
+            ],
+            "moon": "New moon",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 240,
+            "title": "Swimming with mom",
+            "text": "Swimming in a lake with my mom at night, the moon was huge.",
+            "date": "2026-11-07",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [
+                "mom"
+            ],
+            "symbols": [
+                "water",
+                "family",
+                "space",
+                "mom"
+            ],
+            "moon": "Waning crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 242,
+            "title": "The forest door",
+            "text": "A door in the middle of the forest, light pouring out, a wolf guarding it.",
+            "date": "2026-10-29",
+            "visibility": "public",
+            "owner": {
+                "id": 104,
+                "username": "nightswimmer",
+                "avatar": null
+            },
+            "own": true,
+            "tags": [],
+            "symbols": [
+                "door",
+                "light",
+                "forest",
+                "animal"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 120,
+            "title": "TEST",
+            "text": "PUBLIC DREAM",
+            "date": "2026-02-18",
+            "visibility": "public",
+            "owner": {
+                "id": 60,
+                "username": "astephens3",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "PUBLIC"
+            ],
+            "symbols": [
+                "public"
+            ],
+            "moon": "New moon",
+            "resonance": 1,
+            "resonated": false
+        },
+        {
+            "id": 113,
+            "title": "Into the fire",
+            "text": "Escaping. Flew over lava room into fire into stone fireplace",
+            "date": "2026-02-12",
+            "visibility": "public",
+            "owner": {
+                "id": 43,
+                "username": "astephens",
+                "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg"
+            },
+            "own": false,
+            "tags": [
+                "fire",
+                "escape"
+            ],
+            "symbols": [
+                "flying",
+                "house",
+                "fire",
+                "escape"
+            ],
+            "moon": "Waning crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 112,
+            "title": "another dream test",
+            "text": "at work lost and no one could hear me yell",
+            "date": "2026-02-05",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "test"
+            ],
+            "symbols": [
+                "lost",
+                "work",
+                "test"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 111,
+            "title": "test",
+            "text": "driving a car and it i disappeared",
+            "date": "2026-02-05",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "test"
+            ],
+            "symbols": [
+                "car",
+                "test"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 110,
+            "title": "with friends",
+            "text": "hanging out with friends and a thunderstorm came",
+            "date": "2026-02-05",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "interpurt"
+            ],
+            "symbols": [
+                "friend",
+                "interpurt"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 109,
+            "title": "walking the dog",
+            "text": "walking the dog",
+            "date": "2026-02-05",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "dog"
+            ],
+            "symbols": [
+                "animal",
+                "dog"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 107,
+            "title": "another test dream",
+            "text": "I like birds",
+            "date": "2026-02-05",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "birds"
+            ],
+            "symbols": [
+                "bird",
+                "birds"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 105,
+            "title": "public",
+            "text": "public",
+            "date": "2026-02-04",
+            "visibility": "public",
+            "owner": {
+                "id": 70,
+                "username": "testtesttest2",
+                "avatar": null
+            },
+            "own": false,
+            "tags": [
+                "public"
+            ],
+            "symbols": [
+                "public"
+            ],
+            "moon": "Waning gibbous",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 102,
+            "title": "forgot how to fly",
+            "text": "Remember escaping and having trouble flying. Also remember all of sudden being in what looked like space seeing the earth and what looked like another planet near by.",
+            "date": "2026-02-02",
+            "visibility": "public",
+            "owner": {
+                "id": 43,
+                "username": "astephens",
+                "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg"
+            },
+            "own": false,
+            "tags": [
+                "flying",
+                "escape",
+                "space"
+            ],
+            "symbols": [
+                "flying",
+                "travel",
+                "space",
+                "escape"
+            ],
+            "moon": "Full moon",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 69,
+            "title": "Is that me?",
+            "text": "Saw self on mower with Jonah near field just hanging out looking at the field. I walked by them hoping no one would see m to realize no one could see me. I hugged Jonah and myself then let go of all and felt like I slipped away. Then I awoke. Felt very real.",
+            "date": "2025-10-24",
+            "visibility": "public",
+            "owner": {
+                "id": 43,
+                "username": "astephens",
+                "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg"
+            },
+            "own": false,
+            "tags": [
+                "jonah",
+                "see self",
+                "restart",
+                "backyard"
+            ],
+            "symbols": [
+                "jonah",
+                "see self",
+                "restart",
+                "backyard"
+            ],
+            "moon": "Waxing crescent",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 60,
+            "title": "Randomness",
+            "text": "Down school type thin hallway with checkered floor. In back of mind knew that if I stepped on certain areas my feet would go through the floor as I knew I was dreaming. Ended up in basketball court talking to others lots of Indian individuals talking about how are awake. Ended up walking through an unfamiliar housing addition and was hesitant to cut through yard. Thought the family outside would see me. Noticed the shopping center area behind the houses after cutting through.",
+            "date": "2025-10-15",
+            "visibility": "public",
+            "owner": {
+                "id": 43,
+                "username": "astephens",
+                "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg"
+            },
+            "own": false,
+            "tags": [
+                "old house",
+                "school",
+                "basketball court",
+                "awake"
+            ],
+            "symbols": [
+                "house",
+                "family",
+                "school",
+                "lucid",
+                "old house",
+                "basketball court",
+                "awake"
+            ],
+            "moon": "Last quarter",
+            "resonance": 0,
+            "resonated": false
+        },
+        {
+            "id": 58,
+            "title": "Jump off",
+            "text": "Escaping get to balcony see old friend Kyle in some small apartment. Get kids out of some area and fly with both of them off a ledge. Put them in wooded area.",
+            "date": "2025-10-14",
+            "visibility": "public",
+            "owner": {
+                "id": 43,
+                "username": "astephens",
+                "avatar": "http://localhost:8081/uploads/1772592142_ef8caf6283e70767c8b0.jpg.jpg"
+            },
+            "own": false,
+            "tags": [
+                "kyle",
+                "woods",
+                "kids",
+                "flying"
+            ],
+            "symbols": [
+                "flying",
+                "childhood",
+                "friend",
+                "kyle",
+                "woods",
+                "kids"
+            ],
+            "moon": "Last quarter",
+            "resonance": 0,
+            "resonated": false
+        }
+    ],
+    "pulse": [
+        {
+            "symbol": "flying",
+            "dreamers": 2
+        },
+        {
+            "symbol": "family",
+            "dreamers": 2
+        },
+        {
+            "symbol": "city",
+            "dreamers": 2
+        },
+        {
+            "symbol": "water",
+            "dreamers": 2
+        },
+        {
+            "symbol": "door",
+            "dreamers": 2
+        }
+    ]
+}
