@@ -52,6 +52,9 @@ data class LoginResponse(val token: String, val user: Me)
 data class Resonance(val on: Boolean, val count: Int)
 
 @Serializable
+data class ReadNow(val status: String)
+
+@Serializable
 data class LinkState(val state: String, @SerialName("link_id") val linkId: Int? = null)
 
 @Serializable

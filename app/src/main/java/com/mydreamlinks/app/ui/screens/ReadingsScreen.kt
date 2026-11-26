@@ -1,6 +1,12 @@
 package com.mydreamlinks.app.ui.screens
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -11,6 +17,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,10 +33,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.mydreamlinks.app.data.Api
+import com.mydreamlinks.app.data.ApiException
 import com.mydreamlinks.app.data.Reading
 import com.mydreamlinks.app.ui.Go
 import com.mydreamlinks.app.ui.components.BarRow
@@ -42,6 +52,7 @@ import com.mydreamlinks.app.ui.components.PosterButton
 import com.mydreamlinks.app.ui.components.Sticker
 import com.mydreamlinks.app.ui.components.prettyDate
 import com.mydreamlinks.app.ui.components.rememberLoader
+import com.mydreamlinks.app.ui.components.rememberStill
 import com.mydreamlinks.app.ui.theme.Ink
 import kotlinx.coroutines.delay
 
@@ -49,13 +60,26 @@ import kotlinx.coroutines.delay
 fun ReadingsScreen(api: Api, go: Go) {
     val loader = rememberLoader { api.readings() }
     val pending = (loader.state as? Load.Ready)?.value?.let { it.enabled && it.waiting > 0 && !it.capped } == true
-    // a reading is written a minute or so after a dream is saved, so check back while one is on its way
+    var readFailed by remember { mutableStateOf<String?>(null) }
+    // a dream is waiting: ask for its reading now and spin until it lands, like the website
     LaunchedEffect(pending) {
         if (!pending) return@LaunchedEffect
-        repeat(15) {
-            delay(20_000)
-            loader.reload()
+        readFailed = null
+        repeat(6) {
+            val status = try {
+                api.readNow().status
+            } catch (e: ApiException) {
+                readFailed = e.message
+                return@LaunchedEffect
+            }
+            if (status == "busy") {
+                delay(3_000) // another reading run is finishing
+            } else {
+                if (status == "failed") readFailed = "We'll try again in a few minutes. Your dream is saved." else loader.reload()
+                return@LaunchedEffect
+            }
         }
+        readFailed = "We'll try again in a few minutes. Your dream is saved."
     }
     LoadBox(loader) { r ->
         val latest = r.readings.firstOrNull()
@@ -66,7 +90,7 @@ fun ReadingsScreen(api: Api, go: Go) {
                     Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                         Row {
                             Stat("Next reading", when { !r.enabled -> "Readings are off"; r.waiting > 0 -> "${r.waiting} ${if (r.waiting == 1) "dream" else "dreams"} waiting"; else -> "All caught up" }, Modifier.weight(1f))
-                            Stat("Arrives", when { !r.enabled || r.waiting == 0 -> "After your next dream"; r.capped -> "Tomorrow · daily limit reached"; else -> "In a minute or two" }, Modifier.weight(1f))
+                            Stat("Arrives", when { !r.enabled || r.waiting == 0 -> "After your next dream"; r.capped -> "Tomorrow · daily limit reached"; else -> "Any second now" }, Modifier.weight(1f))
                         }
                         Row {
                             Column(Modifier.weight(1f)) {
@@ -83,17 +107,18 @@ fun ReadingsScreen(api: Api, go: Go) {
                 }
             }
             if (!r.enabled) {
-                item { EmptyState("AI readings are switched off.", "Turn them on and each new dream gets read for patterns, symbols and what the sky was doing, a minute or so after you save it.") { PosterButton("Turn on readings", onClick = go::settings) } }
+                item { EmptyState("AI readings are switched off.", "Turn them on and each new dream gets read for patterns, symbols and what the sky was doing, a few seconds after you save it.") { PosterButton("Turn on readings", onClick = go::settings) } }
+            }
+            if (pending) {
+                item { PendingReading(readFailed) }
             }
             if (latest != null) {
                 item { LatestReading(latest) }
-            } else if (r.enabled) {
+            } else if (r.enabled && !pending) {
                 item {
-                    EmptyState("Your first reading is on its way.", when {
-                        r.waiting == 0 -> "Log a dream and your first reading shows up here a minute or so later."
-                        r.capped -> "You've had today's readings. Your new dreams get read tomorrow."
-                        else -> "Your dream is being read now. This page checks back on its own."
-                    })
+                    EmptyState("Your first reading is on its way.",
+                        if (r.capped) "You've had today's readings. Your new dreams get read tomorrow."
+                        else "Log a dream and your reading shows up here a few seconds later.")
                 }
             }
             if (r.readings.size > 1) {
@@ -111,6 +136,31 @@ fun ReadingsScreen(api: Api, go: Go) {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+/** "Reading your dream…" with the portal colours spinning, or what went wrong. */
+@Composable
+private fun PendingReading(failed: String?) {
+    val still = rememberStill()
+    val turn by rememberInfiniteTransition(label = "reading").animateFloat(
+        0f, 360f, infiniteRepeatable(tween(1100, easing = LinearEasing)), label = "turn",
+    )
+    Sticker(Modifier.fillMaxWidth()) {
+        Row(Modifier.padding(20.dp), verticalAlignment = Alignment.CenterVertically) {
+            Canvas(Modifier.size(52.dp).rotate(if (failed == null && !still) turn else 0f)) {
+                val r = size.minDimension / 2
+                drawCircle(Brush.sweepGradient(listOf(Ink.pink, Ink.orange, Ink.yellow, Ink.teal, Ink.violet, Ink.pink)), r)
+                drawCircle(Ink.ink, r * 0.44f)
+                drawCircle(Ink.ink, r - 1.5.dp.toPx(), style = Stroke(3.dp.toPx()))
+            }
+            Spacer(Modifier.width(16.dp))
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(if (failed == null) "Reading your dream…" else "Couldn't read it just now.", style = MaterialTheme.typography.headlineSmall)
+                Text(failed ?: "This takes a few seconds. Your reading shows up here when it's ready.",
+                    style = MaterialTheme.typography.bodyMedium, color = Ink.muted)
             }
         }
     }

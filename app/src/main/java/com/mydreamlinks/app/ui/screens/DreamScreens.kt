@@ -35,7 +35,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,6 +47,7 @@ import com.mydreamlinks.app.DreamLinksApp
 import com.mydreamlinks.app.data.Api
 import com.mydreamlinks.app.data.ApiException
 import com.mydreamlinks.app.data.Dream
+import com.mydreamlinks.app.data.DreamFilter
 import com.mydreamlinks.app.data.DreamInput
 import com.mydreamlinks.app.data.DreamsResponse
 import com.mydreamlinks.app.data.SymbolSpotter
@@ -61,8 +64,9 @@ import com.mydreamlinks.app.ui.components.QuietButton
 import com.mydreamlinks.app.ui.components.Sticker
 import com.mydreamlinks.app.ui.components.rememberLoader
 import com.mydreamlinks.app.ui.theme.Ink
-import kotlinx.coroutines.launch
 import java.time.LocalDate
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.launch
 
 /** Toggles "I've dreamt this too" and patches the dream in whatever list holds it. */
 private suspend fun resonate(api: Api, dream: Dream, patch: (Dream) -> Unit) {
@@ -76,7 +80,10 @@ private fun Loader<DreamsResponse>.patch(d: Dream) = update { res -> res.copy(dr
 
 @Composable
 fun FeedScreen(api: Api, go: Go) {
-    val loader = rememberLoader { api.feed() }
+    var filter by rememberSaveable(stateSaver = DreamFilter.Saver) { mutableStateOf(DreamFilter()) }
+    val loader = rememberLoader { api.feed(filter = filter) }
+    // a new filter refetches in place, so the list (and the search box) stays on screen
+    LaunchedEffect(Unit) { snapshotFlow { filter }.drop(1).collect { loader.reload() } }
     val scope = rememberCoroutineScope()
     LoadBox(loader) { res ->
         Page {
@@ -89,7 +96,7 @@ fun FeedScreen(api: Api, go: Go) {
                 }
             }
             item { LinksStrip(api, go) }
-            if (!res.pulse.isNullOrEmpty()) {
+            if (!res.pulse.isNullOrEmpty() && filter.isDefault) {
                 item {
                     Sticker(color = Ink.night) {
                         Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -104,7 +111,10 @@ fun FeedScreen(api: Api, go: Go) {
                     }
                 }
             }
-            if (res.dreams.isEmpty()) {
+            item { FilterBar(filter, feed = true) { filter = it } }
+            if (res.dreams.isEmpty() && !filter.isDefault) {
+                item { NoMatches { filter = DreamFilter() } }
+            } else if (res.dreams.isEmpty()) {
                 item { EmptyState("It's quiet in here.", "No one you can see has shared a dream yet. Find dreamers to link with, or share one of your own.") }
             }
             items(res.dreams, key = { it.id }) { d ->
@@ -118,7 +128,9 @@ fun FeedScreen(api: Api, go: Go) {
 
 @Composable
 fun JournalScreen(api: Api, go: Go) {
-    val loader = rememberLoader { api.journal() }
+    var filter by rememberSaveable(stateSaver = DreamFilter.Saver) { mutableStateOf(DreamFilter()) }
+    val loader = rememberLoader { api.journal(filter = filter) }
+    LaunchedEffect(Unit) { snapshotFlow { filter }.drop(1).collect { loader.reload() } }
     LoadBox(loader) { res ->
         Page {
             item {
@@ -127,7 +139,12 @@ fun JournalScreen(api: Api, go: Go) {
                     LogoutButton(api)
                 }
             }
-            if (res.dreams.isEmpty()) {
+            if (res.dreams.isNotEmpty() || !filter.isDefault) {
+                item { FilterBar(filter, feed = false) { filter = it } }
+            }
+            if (res.dreams.isEmpty() && !filter.isDefault) {
+                item { NoMatches { filter = DreamFilter() } }
+            } else if (res.dreams.isEmpty()) {
                 item {
                     EmptyState("Nothing logged yet.", "Write down last night's dream while you still remember it.") {
                         PosterButton("Log a dream", onClick = go::newDream)
@@ -269,7 +286,11 @@ fun DreamEditorScreen(app: DreamLinksApp, go: Go, id: Int?) {
                     try {
                         val input = DreamInput(title.trim(), text.trim(), date.trim(), visibility, tags)
                         val saved = if (id == null) api.createDream(input) else api.updateDream(id, input)
-                        if (id == null) go.savedNewDream(saved.id) else go.back()
+                        when {
+                            id != null -> go.back()
+                            runCatching { api.me().aiAnalysisEnabled }.getOrDefault(false) -> go.readNewDream()
+                            else -> go.savedNewDream(saved.id)
+                        }
                     } catch (e: ApiException) {
                         errors = e.fields; error = e.message
                     } finally {

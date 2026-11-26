@@ -63,6 +63,8 @@ class Go(private val nav: NavHostController) {
     fun newDream() = nav.navigate("dream/new")
     /** After logging a dream, show it in place of the empty editor. */
     fun savedNewDream(id: Int) = nav.navigate("dream/$id") { popUpTo("dream/new") { inclusive = true } }
+    /** With readings on, go to Readings instead, which spins until the new dream's reading lands. */
+    fun readNewDream() = nav.navigate("readings") { popUpTo("dream/new") { inclusive = true } }
     fun user(id: Int) = nav.navigate("user/$id")
     fun compare(id: Int) = nav.navigate("dreamscape?with=$id")
     fun search() = nav.navigate("search")

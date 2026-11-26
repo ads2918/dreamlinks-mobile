@@ -39,6 +39,9 @@ class Api(
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
+    /** For a reading written on the spot: the server may wait on the cron, then on Gemini. */
+    private val slowHttp = http.newBuilder().readTimeout(90, TimeUnit.SECONDS).build()
+
     val json = Json { ignoreUnknownKeys = true; explicitNulls = false; coerceInputValues = true }
     private val jsonType = "application/json; charset=utf-8".toMediaType()
 
@@ -65,8 +68,8 @@ class Api(
 
     /* ---- dreams ---- */
 
-    suspend fun feed(page: Int = 1): DreamsResponse = call("GET", "feed?page=$page")
-    suspend fun journal(page: Int = 1): DreamsResponse = call("GET", "dreams?page=$page")
+    suspend fun feed(page: Int = 1, filter: DreamFilter = DreamFilter()): DreamsResponse = call("GET", "feed?page=$page" + filter.query())
+    suspend fun journal(page: Int = 1, filter: DreamFilter = DreamFilter()): DreamsResponse = call("GET", "dreams?page=$page" + filter.query())
     suspend fun dream(id: Int): Dream = call("GET", "dreams/$id")
     suspend fun createDream(input: DreamInput): Dream = call("POST", "dreams", json.encodeToJsonElement(DreamInput.serializer(), input))
     suspend fun updateDream(id: Int, input: DreamInput): Dream = call("PUT", "dreams/$id", json.encodeToJsonElement(DreamInput.serializer(), input))
@@ -86,14 +89,16 @@ class Api(
 
     suspend fun dreamscape(with: Int? = null): Dreamscape = call("GET", "dreamscape" + (with?.let { "?with=$it" } ?: ""))
     suspend fun readings(): Readings = call("GET", "readings")
+    /** Read waiting dreams now. status is done, none, capped, failed, busy or off. */
+    suspend fun readNow(): ReadNow = call("POST", "readings/now", client = slowHttp)
     suspend fun symbols(): SymbolsResponse = call("GET", "symbols")
 
     /* ---- plumbing ---- */
 
-    private suspend inline fun <reified T> call(method: String, path: String, body: JsonElement? = null, auth: Boolean = true): T =
-        call(method, path, body, auth, serializer())
+    private suspend inline fun <reified T> call(method: String, path: String, body: JsonElement? = null, auth: Boolean = true, client: OkHttpClient = http): T =
+        call(method, path, body, auth, serializer(), client)
 
-    private suspend fun <T> call(method: String, path: String, body: JsonElement?, auth: Boolean, des: KSerializer<T>): T {
+    private suspend fun <T> call(method: String, path: String, body: JsonElement?, auth: Boolean, des: KSerializer<T>, client: OkHttpClient): T {
         val token = if (auth) tokens.token() else null
         val request = Request.Builder()
             .url((base + path).toHttpUrl())
@@ -108,7 +113,7 @@ class Api(
 
         val (status, text) = withContext(Dispatchers.IO) {
             try {
-                http.newCall(request).execute().use { it.code to (it.body?.string() ?: "") }
+                client.newCall(request).execute().use { it.code to (it.body?.string() ?: "") }
             } catch (e: IOException) {
                 throw ApiException(0, "Can't reach DreamLinks. Check your connection and try again.")
             }
