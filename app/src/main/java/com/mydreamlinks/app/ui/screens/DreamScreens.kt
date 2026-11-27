@@ -161,6 +161,8 @@ fun DreamDetailScreen(api: Api, go: Go, id: Int) {
     val loader = rememberLoader(id) { api.dream(id) }
     val scope = rememberCoroutineScope()
     var confirm by remember { mutableStateOf(false) }
+    var reporting by remember { mutableStateOf(false) }
+    var reported by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     LoadBox(loader) { d ->
         Page {
@@ -186,7 +188,15 @@ fun DreamDetailScreen(api: Api, go: Go, id: Int) {
                     }
                     error?.let { Text(it, color = Ink.danger) }
                 }
+            } else {
+                item {
+                    if (reported) Text("Thanks for telling us. To stop seeing their dreams, block them from their profile.", style = MaterialTheme.typography.bodySmall, color = Ink.teal)
+                    else TextButton(onClick = { reporting = true }) { Text("Report this dream", color = Ink.muted) }
+                }
             }
+        }
+        if (reporting) {
+            ReportDialog(api, "this dream", dreamId = d.id, onDismiss = { reporting = false }, onSent = { reporting = false; reported = true })
         }
         if (confirm) {
             AlertDialog(

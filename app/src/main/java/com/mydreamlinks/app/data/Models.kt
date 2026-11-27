@@ -83,6 +83,12 @@ data class LinksResponse(val linked: List<LinkedPerson>, val pending: List<Linke
 data class LinkStateResponse(val link: LinkState)
 
 @Serializable
+data class BlockedPerson(@SerialName("block_id") val blockId: Int, val id: Int, val username: String, val avatar: String? = null)
+
+@Serializable
+data class BlocksResponse(val blocked: List<BlockedPerson>)
+
+@Serializable
 data class SymbolCount(val symbol: String, val n: Int)
 
 @Serializable

@@ -66,6 +66,12 @@ class Api(
     suspend fun me(): Me = call("GET", "me")
     suspend fun updateMe(changes: JsonObject): Me = call("POST", "me", changes)
 
+    /** Deletes the account and everything in it for good, then signs out. */
+    suspend fun deleteAccount(password: String) {
+        call<JsonElement>("POST", "me/delete", buildJsonObject { put("password", password) })
+        tokens.clear()
+    }
+
     /* ---- dreams ---- */
 
     suspend fun feed(page: Int = 1, filter: DreamFilter = DreamFilter()): DreamsResponse = call("GET", "feed?page=$page" + filter.query())
@@ -84,6 +90,18 @@ class Api(
     suspend fun requestLink(userId: Int): LinkStateResponse = call("POST", "users/$userId/link")
     suspend fun answerLink(linkId: Int, accept: Boolean): LinksResponse = call("POST", "links/$linkId/" + if (accept) "accept" else "decline")
     suspend fun unlink(linkId: Int): LinksResponse = call("DELETE", "links/$linkId")
+    suspend fun block(userId: Int): BlocksResponse = call("POST", "users/$userId/block")
+    suspend fun blocks(): BlocksResponse = call("GET", "blocks")
+    suspend fun unblock(blockId: Int): BlocksResponse = call("DELETE", "blocks/$blockId")
+
+    /** Report a dream ([dreamId]) or a dreamer ([userId]). [reason] is a key of REPORT_REASONS. */
+    suspend fun report(reason: String, note: String, dreamId: Int? = null, userId: Int? = null) {
+        call<JsonElement>("POST", "reports", buildJsonObject {
+            put("reason", reason); put("note", note)
+            dreamId?.let { put("dream_id", it) }
+            userId?.let { put("user_id", it) }
+        })
+    }
 
     /* ---- insights ---- */
 

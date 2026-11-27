@@ -53,6 +53,9 @@ import kotlinx.coroutines.launch
 fun ProfileScreen(api: Api, go: Go, id: Int) {
     val loader = rememberLoader(id) { api.profile(id) }
     val scope = rememberCoroutineScope()
+    var reporting by remember { mutableStateOf(false) }
+    var blocking by remember { mutableStateOf(false) }
+    var notice by remember { mutableStateOf<String?>(null) }
     LoadBox(loader) { p ->
         val me = p.user.isSelf
         Page {
@@ -72,6 +75,11 @@ fun ProfileScreen(api: Api, go: Go, id: Int) {
                                 }
                                 QuietButton("Compare", onClick = { go.compare(id) })
                             }
+                            Row {
+                                TextButton(onClick = { reporting = true }) { Text("Report", color = Ink.muted) }
+                                TextButton(onClick = { blocking = true }) { Text("Block", color = Ink.muted) }
+                            }
+                            notice?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = Ink.teal) }
                         }
                     }
                 }
@@ -86,6 +94,14 @@ fun ProfileScreen(api: Api, go: Go, id: Int) {
                     }
                 })
             }
+        }
+        if (reporting) {
+            ReportDialog(api, p.user.username, userId = id, onDismiss = { reporting = false }, onSent = {
+                reporting = false; notice = "Thanks for telling us. You can also block them."
+            })
+        }
+        if (blocking) {
+            BlockDialog(api, id, p.user.username, onDismiss = { blocking = false }, onBlocked = { blocking = false; go.back() })
         }
     }
 }
@@ -195,12 +211,13 @@ fun LinksScreen(api: Api, go: Go) {
                     TextButton(onClick = { act { api.unlink(l.linkId) } }) { Text("Unlink", color = Ink.muted) }
                 }
             }
+            item { BlockedList(api) }
         }
     }
 }
 
 @Composable
-private fun PersonRow(name: String, avatar: String?, onOpen: () -> Unit, actions: @Composable () -> Unit) {
+fun PersonRow(name: String, avatar: String?, onOpen: () -> Unit, actions: @Composable () -> Unit) {
     Sticker(Modifier.fillMaxWidth(), shadow = 3.dp) {
         Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Row(Modifier.weight(1f).clickable(onClick = onOpen), verticalAlignment = Alignment.CenterVertically) {

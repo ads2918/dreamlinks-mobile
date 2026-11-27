@@ -5,11 +5,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +21,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.mydreamlinks.app.data.Api
 import com.mydreamlinks.app.data.ApiException
@@ -57,7 +62,7 @@ fun SettingsScreen(api: Api, go: Go) {
                 Sticker(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
                         OutlinedTextField(bio, { bio = it.take(200) }, label = { Text("Bio") }, modifier = Modifier.fillMaxWidth(), minLines = 2)
-                        Toggle("AI readings", "Each new dream gets read for patterns and symbols a minute or so after you save it.", ai) { ai = it }
+                        Toggle("AI readings", "Each new dream gets read for patterns and symbols right after you save it.", ai) { ai = it }
                         Eyebrow("New dreams are seen by")
                         Chips(VIS.values.toList(), tone = { if (VIS[vis] == it) ChipTone.Pink else ChipTone.Card }) { label ->
                             vis = VIS.entries.first { it.value == label }.key
@@ -95,7 +100,50 @@ fun SettingsScreen(api: Api, go: Go) {
             item {
                 QuietButton("Log out", color = Ink.danger, onClick = { scope.launch { api.logout() } })
             }
+            item {
+                DeleteAccount(api)
+            }
         }
+    }
+}
+
+/** Deleting the account for good. The password confirms it, so a stray tap can't. */
+@Composable
+private fun DeleteAccount(api: Api) {
+    var asking by remember { mutableStateOf(false) }
+    var password by remember { mutableStateOf("") }
+    var error by remember { mutableStateOf<String?>(null) }
+    var busy by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    QuietButton("Delete account", color = Ink.danger, onClick = { asking = true; password = ""; error = null })
+    if (asking) {
+        AlertDialog(
+            onDismissRequest = { if (!busy) asking = false },
+            title = { Text("Delete your account?") },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text("Your profile, every dream, your readings, links and blocks are deleted for good. This can't be undone.")
+                    OutlinedTextField(
+                        password, { password = it }, label = { Text("Your password") }, singleLine = true,
+                        visualTransformation = PasswordVisualTransformation(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    error?.let { Text(it, color = Ink.danger, style = MaterialTheme.typography.bodyMedium) }
+                }
+            },
+            confirmButton = {
+                TextButton(enabled = password.isNotEmpty() && !busy, onClick = {
+                    busy = true; error = null
+                    scope.launch {
+                        // on success the token is gone and the app goes back to sign-in
+                        try { api.deleteAccount(password) } catch (e: ApiException) { error = e.message } finally { busy = false }
+                    }
+                }) { Text(if (busy) "Deleting…" else "Delete for good", color = Ink.danger) }
+            },
+            dismissButton = { TextButton(enabled = !busy, onClick = { asking = false }) { Text("Keep it", color = Ink.ink) } },
+            containerColor = Ink.card,
+        )
     }
 }
 
