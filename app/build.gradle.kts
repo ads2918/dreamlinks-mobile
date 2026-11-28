@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -17,6 +19,20 @@ android {
         versionName = "0.1.0"
     }
 
+    // The upload key lives outside the repo; local.properties points at its properties file.
+    val signing = rootProject.file("local.properties").takeIf { it.exists() }
+        ?.let { f -> Properties().apply { f.inputStream().use { load(it) } } }
+        ?.getProperty("dreamlinks.signing")
+        ?.let { p -> Properties().apply { file(p).inputStream().use { load(it) } } }
+    signingConfigs {
+        if (signing != null) create("upload") {
+            storeFile = file(signing.getProperty("storeFile"))
+            storePassword = signing.getProperty("storePassword")
+            keyAlias = signing.getProperty("keyAlias")
+            keyPassword = signing.getProperty("keyPassword")
+        }
+    }
+
     buildTypes {
         debug {
             buildConfigField("String", "SITE_URL", "\"${property("dreamlinks.debugUrl")}\"")
@@ -25,6 +41,7 @@ android {
         release {
             buildConfigField("String", "SITE_URL", "\"${property("dreamlinks.releaseUrl")}\"")
             isMinifyEnabled = true
+            signingConfig = signingConfigs.findByName("upload")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
